@@ -45,23 +45,6 @@ locations$Site
 list(locations)
 # plot locations in map
 
-
-
-coords <- data.frame(lat = c(54.11, 50.6),
-                     long = c(13.33, 13.51))
-
-ggmap(Gera_map) + 
-    geom_point(data = coords,
-               aes(x = long, y = lat), 
-               size = 2) +coord_equal()  + 
-    ggsn::north(x.min = 13.34, x.max = 13.35, 
-                y.min = 54.11, y.max = 54.10, scale = 1.5) + 
-    ggsn::scalebar(x.min = 13.33, x.max = 13.38, 
-                   y.min = 54.11, y.max = 54.11, 
-                   dist = 2, transform= TRUE, dist_unit="km",
-                   model = "WGS84", height = 0.5, 
-                   st.dist = 0.5)
-
 n<-ggmap(Gera_map)+geom_point(data=locations, aes(x=long, y=lat))+ 
     ggsn::scalebar(x.min = 13.44, x.max = 13.50, 
                    y.min = 54.06, y.max = 54.06, 
@@ -71,6 +54,8 @@ n<-ggmap(Gera_map)+geom_point(data=locations, aes(x=long, y=lat))+
 north2(n, x=.95, y=.85, symbol=9)
 
 
-n1<-ggmap(Gera_map)+geom_point(data=locations, aes(x=long, y=lat, size=bat_activity, fill=bat_activity), shape=21, alpha=0.8)+ggsn::scalebar(x.min = 13.44, x.max = 13.50, y.min = 54.06, y.max = 54.06, dist = 1,dist_unit = "km", transform = TRUE,  model = "WGS84", height = 0.5,  st.dist = 0.5) 
-north2(n1, x=.8, y=.8, symbol=9)
+n1<-ggmap(Gera_map)+geom_point(data=locations, aes(x=long, y=lat, size=bat_activity, fill=bat_activity), shape=21, alpha=0.8)+
+    ggsn::scalebar(x.min = 13.44, x.max = 13.50, y.min = 54.06, y.max = 54.06, dist = 1,dist_unit = "km", transform = TRUE,  
+    model = "WGS84", height = 0.5,  st.dist = 0.5) 
+    north2(n1, x=.8, y=.8, symbol=9)
 
